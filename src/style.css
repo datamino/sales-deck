@@ -352,3 +352,59 @@ html,body{overflow-x:clip}
 .p2-panel.is-before li{color:#84897a}
 .p2-panel.is-after li{font-weight:600;color:#23251f}
 .p2-panel.is-after li:before{background:#a5851c}
+
+/* ---- Tablet and small laptops: the canvas grows with the content ---- */
+@media(max-width:1300px){
+ .slide{height:auto;min-height:0}
+ .slide-content{align-items:flex-start;overflow:visible;padding:20px 0 4px}
+ .p2-principle-list{flex-wrap:wrap}
+ .p2-principle-list li{flex:1 1 100%;grid-template-columns:150px 1fr}
+ .p3-from-to{grid-template-columns:1fr;gap:18px;justify-items:start}
+ .p3-arrow{rotate:90deg}
+ .p2-shift-panels{grid-template-columns:1fr;gap:16px}
+ .p2-shift-panels .p3-arrow{justify-self:center}
+}
+
+/* ---- Phone ---- */
+@media(max-width:760px){
+ /* The slide flows with its content rather than holding a fixed height. */
+ .slide,.presenting .slide{height:auto;min-height:0}
+ .slide-content{align-items:flex-start;overflow:visible}
+ .site-shell{padding:18px 14px 24px}
+
+ /* Chapter links run across instead of down the page. */
+ .sidebar{grid-template-columns:1fr;gap:12px}
+ .chapter-list{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:4px}
+ .nav-link{flex:0 0 auto;min-height:42px;font-size:12px;padding:0 13px}
+ .nav-link svg{display:none}
+
+ /* Diagrams stay legible and scroll sideways instead of shrinking to nothing. */
+ .p2-system-body{overflow-x:auto;justify-content:flex-start;margin-top:16px}
+ .p2-diagram{min-width:660px}
+ .p2-dotted,.p3-mark{display:none}
+
+ /* One control per row, full width. */
+ .p2-principle-list{flex-direction:column;gap:7px;margin-top:20px}
+ .p2-principle-list li{flex:none;grid-template-columns:118px 1fr}
+ .p2-principle-list span{font-size:12px;padding:0 10px}
+ .p2-principle-list b{font-size:9px;letter-spacing:1px}
+
+ .p2 h2,.p2-system-title{font-size:27px!important;letter-spacing:-1.1px}
+ .p2 .lead,.p3-built .lead{font-size:14px}
+ .p2-panel li{font-size:14px}
+ .p3-domains li{font-size:14px;padding:10px 14px}
+ .p3-to p{font-size:19px}
+ .p3-thanks h2{font-size:52px;letter-spacing:-2px}
+ .p3-thanks-line{font-size:17px}
+ .p1 h2,.p1-opportunity h2,.p1-idea h2{font-size:30px!important;letter-spacing:-1.2px}
+ .p1-routines li{font-size:14px;padding:11px 13px}
+ .p1-trait h3{font-size:18px}
+ .p1-card h3,.p1-idea .p1-card h3{font-size:22px}
+ .p1-idea .p1-card li{font-size:14px}
+ .slide-tag{font-size:9px;padding:6px 12px;letter-spacing:1px}
+}
+/* Flex children default to min-width:auto, so a wide diagram stretches its parent.
+   Pinning these to 0 keeps the scroll inside the diagram where it belongs. */
+.p2,.p2-system-body,.slide-content,.chapter-main,.slide{min-width:0}
+.sidebar,.chapter-navigation,.phase-context,.chapter-layout{min-width:0}
+@media(max-width:760px){.chapter-list{max-width:100%}}
